@@ -19,13 +19,9 @@ let catchphrases = [];
 
 headDropdown.addEventListener('change', () => {
     // get the value of the head dropdown
-    const value = headDropdown.value;
     // increment the head change count state
-    headChange++;
     // update the dom for the head (use style.backgroundImage on the headEl div instead of trying to set the .src -- it's NOT an img tag!)
-    headEl.style.backgroundImage = `url(../assets/${value}-head.png)`;
     // update the stats to show the new count (call displayStats() to do this work)
-    displayStats();
 });
 
 middleDropdown.addEventListener('change', () => {
@@ -44,13 +40,9 @@ bottomDropdown.addEventListener('change', () => {
 
 catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
-    const value = catchphraseInput.value;
     // push the new catchphrase to the catchphrase array in state
-    catchphrases.push(value);
     // clear out the form input's value so it's empty to the user
-    catchphraseInput.value = '';
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
-    displayCatchphrases();
 });
 
 function displayStats() {
@@ -60,15 +52,8 @@ function displayStats() {
 
 function displayCatchphrases() {
     // clear out the DOM for the currently displayed catchphrases
-    catchphrasesEl.textContent = '';
     // loop through each catchphrase in state
-    for (let catchphrase of catchphrases) {
-        // and for each catchphrase
-        // create an HTML element with the catchphrase as its text content
-        const display = document.createElement('p');
-        display.classList.add('catchphrase');
-        display.textContent = catchphrase;
-        catchphrasesEl.append(display);
-    }
+    // and for each catchphrase
+    // create an HTML element with the catchphrase as its text content
     // and append that HTML element to the cleared-out DOM
 }
